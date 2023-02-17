@@ -15,6 +15,7 @@ rows = table.find_elements(By.TAG_NAME, "tr")
 
 data = {}
 counter = 0
+counter2 = 0 #Once the counter gets to a certain number it terminates the program
 #data[1]="Connor McDavid"
 for row in rows:
     # Find all of the cells in the row
@@ -22,14 +23,17 @@ for row in rows:
     # Print the data for each cell
     for cell in cells:
         print(counter,"Text",cell.text)
-        if counter == 54:
+        if counter == 64:
             player = cell.text
             data[player]=[]
-        elif counter == 55 or counter == 56 or counter == 57 or counter == 58 or counter == 59 or counter == 60: 
+        elif counter == 65 or counter == 66 or counter == 67 or counter == 68 or counter == 69 or counter == 70: 
             data[player].append(cell.text)
-        counter += 1
+        elif counter == 73:
+            counter = 63
+        elif counter2 == 692:
+            break
+
 print(data)
 # Close the browser
 driver.quit()
 
-#data = {"Connor McDavid": [1, 8, 537, 280]}
