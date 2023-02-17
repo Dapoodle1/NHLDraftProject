@@ -15,7 +15,7 @@ rows = table.find_elements(By.TAG_NAME, "tr")
 
 data = {}
 counter = 0
-counter2 = 0 #Once the counter gets to a certain number it terminates the program
+counter2 = 0 #Once the couter gets to a certain number it terminates the program
 #data[1]="Connor McDavid"
 for row in rows:
     # Find all of the cells in the row
@@ -30,8 +30,12 @@ for row in rows:
             data[player].append(cell.text)
         elif counter == 73:
             counter = 63
-        elif counter2 == 692:
+        elif counter2 == 300:
             break
+        elif "ROUND" in cell.text:
+            counter += 1
+        counter2 += 1
+        counter += 1
 
 print(data)
 # Close the browser
