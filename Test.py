@@ -9,6 +9,11 @@ options = ChromeOptions()
 options.headless = True
 driver = webdriver.Chrome(service=s,options = options)
 
+def individual_stats(link):
+    driver.get(link)
+    table = driver.find_element(By.CLASS_NAME, "table-wizard")
+    print(table)
+
 #options = ChromeOptions()
 #options.headless = True
 driver.get('https://www.eliteprospects.com/draft/nhl-entry-draft/2015')
@@ -26,11 +31,17 @@ click3 = rows[0].find_elements(By.XPATH, '//td[@class="player"]//a[@href]')
 print(click2)
 print(click3)
 for i in click3:
-    print(i.text)
+    print(i)
+    #print(i.text)
     i = i.get_attribute('href')
-    print(i.click())
-    print(i.text)
-data = {}
+    print(i)
+    #print(i.click())
+    #print(i.text)
+    #i.click()
+    #print(i)
+    individual_stats(i)
+
+'''data = {}
 counter = 0
 counter2 = 0 #Once the couter gets to a certain number it terminates the program
 #data[1]="Connor McDavid"
@@ -55,7 +66,7 @@ for row in rows:
         elif "ROUND" in cell.text:
             counter -= 1
         counter2 += 1
-        counter += 1
+        counter += 1'''
 
 print(data)
 # Close the browser
